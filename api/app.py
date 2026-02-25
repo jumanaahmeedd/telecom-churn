@@ -47,9 +47,9 @@ def prepare_data(data):
     })
     return example_customer
 
-@app.route('/predict', methods='GET')
+@app.route('/predict', methods=['GET'])
 def predict():
-    data = request.data
+    data = request.form
     prepared_data = prepare_data(data)
     pred = model.predict(prepared_data)[0]
     if pred == 'Yes':
